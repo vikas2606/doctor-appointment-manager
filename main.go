@@ -32,7 +32,7 @@ func main() {
 	http.HandleFunc("/appointDiabet", appointDiabet)
 
 	http.HandleFunc("/appointPedia", appointPedia)
-	conn, err := sql.Open("mysql", "root:root@tcp(database:3306)/golang-docker")
+	conn, err := sql.Open("mysql", "root:root@tcp(database:3306)/test")
 	if err != nil {
 		panic(err)
 	}
@@ -178,7 +178,7 @@ func appointPedia(w http.ResponseWriter, r *http.Request) {
 }
 
 func check_user(mobile string, email string) bool {
-	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/golang-docker")
+	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/test")
 	if err != nil {
 		panic(err)
 	}
@@ -193,7 +193,7 @@ func check_user(mobile string, email string) bool {
 	return exists
 }
 func add_user(fname string, lname string, sex string, mobile string, email string, OPD string, issue string, time string, date string) bool {
-	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/golang-docker")
+	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/test")
 	if err != nil {
 		panic(err)
 	}
@@ -206,7 +206,7 @@ func add_user(fname string, lname string, sex string, mobile string, email strin
 	return true
 }
 func check_appoint(time string, date string) bool {
-	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/golang-docker")
+	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/test")
 	if err != nil {
 		panic(err)
 	}
@@ -239,7 +239,7 @@ func mail(email string, fname string, lname string, sex string, doctor string, O
 	return true
 }
 func PID(email string) string {
-	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/golang-docker")
+	db, err := sql.Open("mysql", "root:root@tcp(database:3306)/test")
 	if err != nil {
 		panic(err)
 	}
